@@ -1,26 +1,28 @@
-# Website Monitoring & Alert System v2
+# Website Monitoring & Alert System
 
-A stronger, portfolio-ready Python automation project that monitors websites for content changes and keyword matches, sends alerts via Telegram and email, stores state in SQLite, captures screenshots on alert, exposes a FastAPI dashboard, and ships with Docker support.
+A Python-based system for monitoring websites, detecting content changes or keyword matches, and delivering real-time alerts through multiple channels.
+
+The system is designed to handle modern, JavaScript-heavy websites using Playwright, persist monitoring state and history in SQLite, capture screenshots when relevant changes occur, and provide a lightweight dashboard for visibility and tracking.
 
 ## Features
 
-- Monitor multiple pages from a JSON config
-- Playwright-based extraction for JavaScript-heavy sites
-- Optional CSS selector targeting per monitor
-- SQLite persistence for monitor state and alert history
-- Keyword matching with configurable alert modes
-- Telegram Bot API alerts
-- SMTP email alerts
-- Screenshot capture on alert
-- FastAPI dashboard with recent alerts and monitor state
-- Docker + docker-compose support
-- Retry and timeout settings
-- Structured logging
+* Monitor multiple pages from a JSON configuration
+* Playwright-based extraction for dynamic websites
+* Optional CSS selector targeting per monitor
+* SQLite persistence for state and alert history
+* Keyword matching with configurable alert modes
+* Telegram notifications via Bot API
+* Email notifications via SMTP (with optional attachments)
+* Screenshot capture on alert
+* FastAPI dashboard for monitoring status and history
+* Docker and docker-compose support
+* Retry handling and configurable timeouts
+* Structured logging
 
 ## Repository structure
 
-```text
-website-monitoring-alert-system-v2/
+```
+website-monitoring-alert-system/
 ├─ README.md
 ├─ requirements.txt
 ├─ .env.example
@@ -53,8 +55,6 @@ website-monitoring-alert-system-v2/
 ### Local
 
 ```bash
-git clone https://github.com/your-username/website-monitoring-alert-system-v2.git
-cd website-monitoring-alert-system-v2
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -77,7 +77,7 @@ docker compose up --build
 
 Monitoring service runs once on container start. Dashboard is available on port `8000`.
 
-## `monitors.json` example
+## monitors.json example
 
 ```json
 [
@@ -94,9 +94,9 @@ Monitoring service runs once on container start. Dashboard is available on port 
 
 ## Alert modes
 
-- `change`
-- `keyword`
-- `keyword_or_change`
+* `change`
+* `keyword`
+* `keyword_or_change`
 
 ## Screenshots
 
@@ -104,12 +104,9 @@ When `SAVE_SCREENSHOT_ON_ALERT=true`, an alerting monitor saves a PNG under `scr
 
 ## Dashboard
 
-The FastAPI dashboard shows:
-- monitors and their last status
-- most recent alerts
-- recent matched keywords
-- screenshot file names when available
+The FastAPI dashboard provides:
 
-## Portfolio summary
-
-Built a production-ready Python monitoring platform that tracks website changes and keyword matches, stores persistent state in SQLite, sends alerts through Telegram and email, captures screenshots on alert, and exposes a FastAPI dashboard for reviewing monitor health and alert history. Designed for job boards, marketplace tracking, product monitoring, and internal business alerts.
+* Current status of all monitors
+* Last evaluation results and reasons
+* Recent alerts and matched keywords
+* Access to captured screenshots (when available)
